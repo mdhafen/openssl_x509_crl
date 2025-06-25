@@ -28,6 +28,12 @@ class OID
 		switch($cipher) {
 			case OPENSSL_KEYTYPE_RSA:
 				switch($digest) {
+					case OPENSSL_ALGO_SHA512:
+						return self::getOIDFromName('sha512withRSAEncryption');
+					case OPENSSL_ALGO_SHA384:
+						return self::getOIDFromName('sha384withRSAEncryption');
+					case OPENSSL_ALGO_SHA256:
+						return self::getOIDFromName('sha256withRSAEncryption');
 					case OPENSSL_ALGO_SHA1:
 						return self::getOIDFromName('sha1withRSAEncryption');
 					case OPENSSL_ALGO_MD5:
@@ -43,6 +49,12 @@ class OID
 				switch($digest) {
 					case OPENSSL_ALGO_SHA1:
 						return self::getOIDFromName('ecdsa-with-SHA1');
+					case OPENSSL_ALGO_SHA256:
+						return self::getOIDFromName('ecdsa-with-sha256');
+					case OPENSSL_ALGO_SHA384:
+						return self::getOIDFromName('ecdsa-with-sha384');
+					case OPENSSL_ALGO_SHA512:
+						return self::getOIDFromName('ecdsa-with-sha512');
 					default:
 						return false;
 				}
@@ -107,6 +119,9 @@ class OID
 		"1.2.840.113549.1.1.3" => "md4withRSAEncryption",
 		"1.2.840.113549.1.1.4" => "md5withRSAEncryption",
 		"1.2.840.113549.1.1.5" => "sha1withRSAEncryption",
+		"1.2.840.113549.1.1.11" => "sha256withRSAEncryption",
+		"1.2.840.113549.1.1.12" => "sha384withRSAEncryption",
+		"1.2.840.113549.1.1.13" => "sha512withRSAEncryption",
 		//ec
 		"1.2.840.10045.4.1" => "ecdsa-with-SHA1",
 		"1.2.840.10045.4.3.2" => "ecdsa-with-sha256",
